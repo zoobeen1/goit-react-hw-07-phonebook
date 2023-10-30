@@ -7,7 +7,7 @@ export const Input = styled(Field)`
   margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 95%;
+  width: 100%;
 `;
 export const FormStyled = styled(Form)`
   margin-bottom: 30px;

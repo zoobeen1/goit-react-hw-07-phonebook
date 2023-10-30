@@ -1,6 +1,6 @@
 export const theme = {
   sizes: {
-    small: '320px',
+    small: '380px',
     medium: '768px',
     large: '1024px',
     xlarge: '1280px',

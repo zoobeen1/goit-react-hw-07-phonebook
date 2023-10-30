@@ -18,7 +18,8 @@ export function App() {
     <Container>
       <PhoneBook />
       {isLoading && !error && <b>Request in progress...</b>}
-      {!isLoading && <Contacts />}
+      {!isLoading && !error && <Contacts />}
+      {error && <b>ERROR</b>}
       <GlobalStyle />
     </Container>
   );

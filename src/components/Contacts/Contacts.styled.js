@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { Box } from '../common';
 
 export const List = ({ children, ...props }) => {
@@ -23,3 +24,7 @@ export const ListItem = ({ children }) => {
     </Box>
   );
 };
+export const Number = styled.p`
+  margin-left: auto;
+  margin-right: 5px;
+`;

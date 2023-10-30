@@ -9,7 +9,7 @@ export const Filter = ({ filter, onChange }) => {
         p={2}
         border="normal"
         borderRadius="normal"
-        width="95%"
+        width="100%"
         type="text"
         name="filter"
         value={filter}
