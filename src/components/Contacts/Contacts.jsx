@@ -5,11 +5,7 @@ import { Section } from '../common';
 import { Filter } from 'components/Filter';
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectContacts,
-  selectFilter,
-  selectVisibleContats,
-} from 'redux/selectors';
+import { selectFilter, selectVisibleContats } from 'redux/selectors';
 //Redux-actions
 import { deleteContact } from 'redux/operations';
 import { setFilter } from 'redux/contactsSlice';
