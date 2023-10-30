@@ -5,15 +5,15 @@ import { Section } from '../common';
 import { Filter } from 'components/Filter';
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 //Redux-actions
-import { deleteContact } from 'redux/contactsSlice';
-import { setFilter } from 'redux/filterSlice';
+import { deleteContact } from 'redux/operations';
+import { setFilter } from 'redux/contactsSlice';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   //Управляет фильтром - контроллируемый элемент
   const changeFilter = e => {

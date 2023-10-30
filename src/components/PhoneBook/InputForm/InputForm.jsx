@@ -4,15 +4,14 @@ import { Button } from 'components/common';
 import { FormError } from './FormError';
 import * as yup from 'yup';
 //Redux
-import { nanoid } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 //Redux-actions
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 
 export const InputForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   //Formik Validation schema
   const schema = yup.object().shape({
@@ -26,7 +25,7 @@ export const InputForm = () => {
 
     if (!names.includes(name)) {
       const newContact = {
-        id: nanoid(),
+        // id: nanoid(),
         name,
         number: values.number,
       };
@@ -51,7 +50,7 @@ export const InputForm = () => {
           type="text"
           name="name"
           id="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Add a new contact"
           required
@@ -63,7 +62,7 @@ export const InputForm = () => {
           type="tel"
           name="number"
           id="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           placeholder="Add a phone number"
           required
