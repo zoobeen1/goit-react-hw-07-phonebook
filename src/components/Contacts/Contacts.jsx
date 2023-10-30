@@ -5,14 +5,18 @@ import { Section } from '../common';
 import { Filter } from 'components/Filter';
 //Redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
+import {
+  selectContacts,
+  selectFilter,
+  selectVisibleContats,
+} from 'redux/selectors';
 //Redux-actions
 import { deleteContact } from 'redux/operations';
 import { setFilter } from 'redux/contactsSlice';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  // const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
 
   //Управляет фильтром - контроллируемый элемент
@@ -20,18 +24,19 @@ export const Contacts = () => {
     dispatch(setFilter(e.target.value));
   };
   //Возвращает массив контактов по фильтру
-  const getVisibleContacts = () => {
-    const lowercaseFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(lowercaseFilter)
-    );
-  };
+  const visibleContacts = useSelector(selectVisibleContats);
+  // const getVisibleContacts = () => {
+  //   const lowercaseFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(lowercaseFilter)
+  //   );
+  // };
 
   return (
     <Section title="Contacts">
       <Filter filter={filter} onChange={changeFilter} />
       <Box width="95%" mt="10px" pt="20px">
-        {getVisibleContacts().map(contact => {
+        {visibleContacts.map(contact => {
           return (
             <List key={contact.id}>
               <ListItem>
